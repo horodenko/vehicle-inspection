@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Schema::create('motorista', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->nome();
-        //     $table->cpf();
-        //     $table->rg();
-        //     $table->id_veiculo();
-        // });
+        Schema::create('motorista', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
+            $table->string('cpf');
+            $table->string('rg');
+        });
     }
 
     /**
