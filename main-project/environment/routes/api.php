@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/drivers', [DriverController::class, 'index']);
-Route::get('/drivers/{id}', [DriverController::class, 'show']);
+Route::get('/drivers/{driver}', [DriverController::class, 'show']);
 Route::post('/drivers', [DriverController::class, 'store']);
-Route::put('/drivers/{id}', [DriverController::class, 'update']);
-Route::delete('/drivers/{id}', [DriverController::class, 'destroy']);
+Route::put('/drivers/{driver}', [DriverController::class, 'update']);
+Route::delete('/drivers/{driver}', [DriverController::class, 'destroy']);

@@ -9,31 +9,31 @@ class DriverController extends Controller
 {
     public function index()
     {
-        $drivers = Driver::all();
+        $existentDrivers = Driver::all();
 
-        return response()->json($drivers);
+        return response()->json($existentDrivers);
     }
 
-    public function show($id)
+    public function show($driver)
     {
-        $driver = Driver::find($id);
+        $existentDriver = Driver::find($driver);
 
-        return $driver ? response()->json($driver) : response()->json(null, 404);
+        return $existentDriver ? response()->json($existentDriver) : response()->json(null, 404);
     }
 
     public function store(SendRequest $request)
     {
-        $driver = Driver::create($request->all());
+        $driverToCreate = Driver::create($request->all());
 
         return back()->with("success", "Cadastro realizado com sucesso.");
     }
 
-    public function update(SendRequest $request, $id)
+    public function update(SendRequest $request, $driver)
     {
-        $driver = Driver::find($id);
+        $existentDriver = Driver::find($driver);
 
-        if ($driver) {
-            $driver->update($request->all());
+        if ($existentDriver) {
+            $existentDriver->update($request->all());
 
             return back()->with("success", "Cadastro atualizado com sucesso.");
         } else {
@@ -41,12 +41,12 @@ class DriverController extends Controller
         }
     }
 
-    public function destroy($id)
+    public function destroy($driver)
     {
-        $driver = Driver::find($id);
+        $existentDriver = Driver::find($driver);
 
-        if ($driver) {
-            $driver->delete();
+        if ($existentDriver) {
+            $existentDriver->delete();
 
             return response()->json($driver);
         } else {
