@@ -1,9 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Vehicle;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +14,12 @@ use App\Models\Vehicle;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/drivers', function () {
+    return view('drivers');
+});
+
+Route::get('/inspection', function () {
+    return view('inspection');
 });
