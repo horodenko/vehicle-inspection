@@ -1,6 +1,5 @@
 .main-container {
-    width: 50%;
-    margin-left: 160px;
+    margin-left: 50px;
     z-index: 1;
 }
 
@@ -13,8 +12,6 @@ form {
 }
 
 .form-header {
-    display: flex;
-    justify-content: center;
     margin-top: 64px;
     margin-bottom: 36px;
 }
@@ -48,6 +45,7 @@ form {
     padding: 0.8rem 1.2rem;
     border: none;
     border-radius: 10px;
+    background-color: #e6ebf1;
     transition: 0.5s;
 }
 
@@ -73,25 +71,72 @@ form {
     margin-bottom: 10px;
 }
 
+.submit-driver-container {
+    gap: 26px;
+    grid-template-columns: 1fr 1fr;
+    margin-right: auto;
+    display: grid;
+}
+
 .submit-button,
 .return-button {
     width: 100%;
+    height: fit-content;
     border: none;
     background-color: #8994a1;
+    color: #e9eff7;
     padding: 0.65rem;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.5s;
 }
 
-.submit-button a,
-.return-button a {
-    color: #e9eff7;
+.return-button {
     text-decoration: none;
+    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
 }
 
 .submit-button:hover,
 .return-button:hover {
+    background-color: #a9b7c7;
+}
+
+.delete-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+}
+
+.delete-confirm-container {
+    gap: 20px;
+    margin-top: 20px;
+    display: grid;
+}
+
+.delete-agree-button,
+.delete-refuse-button {
+    width: 100%;
+    border: none;
+    background-color: #8994a1;
+    color: #e9eff7;
+    padding: 0.65rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.delete-refuse-button {
+    text-decoration: none;
+    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
+}
+
+.delete-agree-button:hover,
+.delete-refuse-button:hover {
     background-color: #a9b7c7;
 }
 
