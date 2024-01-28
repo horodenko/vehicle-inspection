@@ -71,6 +71,13 @@ form {
     margin-bottom: 10px;
 }
 
+.submit-driver-container {
+    gap: 26px;
+    grid-template-columns: 1fr 1fr;
+    margin-right: auto;
+    display: grid;
+}
+
 .submit-vehicle-container {
     gap: 26px;
     grid-template-columns: 1fr 1fr;
