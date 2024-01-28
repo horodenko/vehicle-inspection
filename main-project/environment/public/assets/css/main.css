@@ -1,3 +1,109 @@
-.main-wrapper {
+.main-wrapper,
+.table-wrapper {
     display: flex;
+}
+
+.main-title {
+    letter-spacing: 0.1em;
+    padding: 2rem;
+}
+
+.table-wrapper {
+    width: 100%;
+    margin: 30px;
+}
+
+.table-wrapper .table {
+    flex: 1;
+}
+
+main.table {
+    display: flex;
+    margin-top: 100px;
+    margin-left: 30px;
+    box-shadow: 0 0.4rem 0.8rem #0005;
+    border-radius: 10px;
+    overflow: auto;
+    height: 454px;
+}
+
+.table-header {
+    width: 100%;
+    background-color: white;
+    padding: .8rem 2rem;
+    margin-bottom: -15px;
+    border-bottom: 1px solid;
+    top: 0;
+    position: sticky;
+}
+
+.table-body {
+    margin-top: 15px;
+}
+
+table,
+th,
+td {
+    padding: 1rem;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    font-size: .8em;
+    color: #000000be;
+}
+
+.drivers-table,
+.vehicles-table {
+    flex: 1;
+}
+
+.first-cell {
+    display: flex;
+}
+
+.vehicle-cell,
+.inspection-cell,
+.edit-cell,
+.delete-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-cell-icon,
+.delete-cell-icon {
+    color: #8994a1;
+}
+
+.vehicle-cell-span {
+    flex: 1;
+}
+
+.vehicle-section {
+    border-left: 1px solid;
+}
+
+.register-vehicle-container {
+    display: flex;
+    justify-content: center;
+}
+
+.register-vehicle-button {
+    width: 100%;
+    height: fit-content;
+    border: none;
+    background-color: #8994a1;
+    color: #e9eff7;
+    padding: 0.65rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+    text-decoration: none;
+    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
 }
