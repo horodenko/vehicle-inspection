@@ -3,7 +3,7 @@
 
 <head>
     @include('includes.head')
-    <link rel="stylesheet" href="{{ asset('assets/css/driver.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/entities.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 </head>
 
@@ -15,7 +15,7 @@
 
         <h2>Motorista - {{ $driver->nome }}</h2>
 
-        <form action="{{ route('drivers.destroy', ['driver' => $driver->id]) }}" method="post">
+        <form action="{{ route('drivers.destroy', ['driver' => $driver]) }}" method="post">
             @csrf
             <section class="delete-container">
                 <h3>Deseja excluir o motorista?</h3>
@@ -24,7 +24,7 @@
                     <button type="submit" class="delete-agree-button">
                         Sim
                     </button>
-                    <a href="{{route('home')}}" class="delete-refuse-button">
+                    <a href="{{ route('home') }}" class="delete-refuse-button">
                         Não
                     </a>
                 </div>

@@ -3,7 +3,7 @@
 
 <head>
     @include('includes.head')
-    <link rel="stylesheet" href="{{ asset('assets/css/driver.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/entities.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 </head>
 
@@ -38,7 +38,7 @@
                             Cadastrar
                         </span>
                     </button>
-                    <a href="{{route('home')}}" class="return-button">
+                    <a href="{{ route('home') }}" class="return-button">
                         Voltar
                     </a>
                 </div>

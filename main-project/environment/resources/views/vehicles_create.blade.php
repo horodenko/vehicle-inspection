@@ -3,7 +3,7 @@
 
 <head>
     @include('includes.head')
-    <link rel="stylesheet" href="{{ asset('assets/css/vehicle.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/entities.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 </head>
 
