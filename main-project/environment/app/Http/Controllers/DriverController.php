@@ -4,53 +4,67 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SendRequest;
 use App\Models\Driver;
+use App\Models\Vehicle;
 
 class DriverController extends Controller
 {
+    public readonly Driver $driver;
+
     public function index()
     {
-        $existentDrivers = Driver::all();
+        $drivers = Driver::all();
 
-        return response()->json($existentDrivers);
+        return response()->json($drivers);
+        // return view('drivers', ['drivers' => $drivers]);
     }
 
-    public function show($driver)
+    public function show(Driver $driver)
     {
-        $existentDriver = Driver::find($driver);
+        return view('drivers_show', ['driver' => $driver]);
+    }
 
-        return $existentDriver ? response()->json($existentDriver) : response()->json(null, 404);
+    public function create()
+    {
+        return view('drivers_create');
+    }
+
+    public function edit(Driver $driver)
+    {
+        return view('drivers_edit', ['driver' => $driver]);
     }
 
     public function store(SendRequest $request)
     {
-        $driverToCreate = Driver::create($request->all());
+        $created = Driver::create([
+            'nome' => $request->input('nome'),
+            'cpf' => $request->input('cpf'),
+            'rg' => $request->input('rg')
+        ]);
 
-        return back()->with("success", "Cadastro realizado com sucesso.");
-    }
-
-    public function update(SendRequest $request, $driver)
-    {
-        $existentDriver = Driver::find($driver);
-
-        if ($existentDriver) {
-            $existentDriver->update($request->all());
-
-            return back()->with("success", "Cadastro atualizado com sucesso.");
+        if ($created) {
+            return redirect()->back()->with('message', 'Criado com sucesso.');
         } else {
-            return response()->json(null, 404);
+            return redirect()->back()->with('message', 'Não foi possível realizar a criação.');
         }
     }
 
-    public function destroy($driver)
+    public function update(SendRequest $request, string $id)
     {
-        $existentDriver = Driver::find($driver);
+        $filteredFields = $request->except(['_token', '_method']);
 
-        if ($existentDriver) {
-            $existentDriver->delete();
+        $updated = Driver::where('id', $id)->update($filteredFields);
 
-            return response()->json($driver);
+        if ($updated) {
+            return redirect()->back()->with('message', 'Atualizado com sucesso.');
         } else {
-            return response()->json(null, 404);
+            return redirect()->back()->with('message', 'Não foi possível atualizar.');
         }
+    }
+
+    public function destroy(SendRequest $request, string $id)
+    {
+        Driver::where('id', $id)->delete();
+
+        return redirect()->route('home');
     }
 }
